@@ -7,12 +7,17 @@ on:
       - main
 
 jobs:
-
   build:
-
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build NetFramework45WebForms/. --file NetFramework45WebForms/Dockerfile --force-rm -t netframework45webforms:dev --build-arg "source=NetFramework45WebForms\obj\Docker\empty" --tag my-image-name:$(date +%s)
+      run: msbuild NetFramework45WebForms/NetFramework45WebForms.sln /t:Build /p:Configuration=Release
+
+    - name: Azure
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: net-framework-45-web-forms
+        publish-profile: ${{ secrets.DEV }}
+        package: /Build
