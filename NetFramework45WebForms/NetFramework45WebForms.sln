@@ -5,6 +5,11 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetFramework45WebForms", "NetFramework45WebForms.csproj", "{3156B2CA-6FDB-4672-AA57-71C2C789E9A8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B900D13-A905-45FE-974B-AD8AB9FC8EEE}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\docker-net-framework-45-web-forms-image.yml = ..\.github\workflows\docker-net-framework-45-web-forms-image.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
