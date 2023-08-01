@@ -11,13 +11,30 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: msbuild NetFramework45WebForms/NetFramework45WebForms.sln /t:Build /p:Configuration=Release
+    - uses: actions/checkout@v2
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+      
+    #- name: Navigate to Workspace
+    #  run: cd $GITHUB_WORKSPACE
+
+    - name: Create Build Directory
+      run: mkdir _build
+      
+    - name: Restore Packages
+      run: nuget restore NetFramework45WebForms.sln
+
+    - name: Build Solution
+      run: |
+        msbuild.exe NetFramework45WebForms/NetFramework45WebForms.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
 
     - name: Azure
       uses: azure/webapps-deploy@v1
       with:
         app-name: net-framework-45-web-forms
         publish-profile: ${{ secrets.DEV }}
-        package: /Build
+        package: /_build
