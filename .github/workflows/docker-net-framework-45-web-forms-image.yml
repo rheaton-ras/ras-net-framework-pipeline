@@ -15,6 +15,8 @@ jobs:
       with:
          submodules: 'true'
          ssh-key: ${{ secrets.DEV_SSH_KEY }}
+         repository: rheaton-ras/ras-net-framework-submodule
+         path: ras-net-framework-submodule
     
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
