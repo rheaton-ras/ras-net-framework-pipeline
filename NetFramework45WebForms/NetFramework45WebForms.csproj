@@ -231,6 +231,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ras-net-framework-submodule\RasNetFrameworkSubmodule\RasNetFrameworkSubmodule.csproj">
+      <Project>{de1d9efe-7724-4658-91b3-5fcbe3c1d11b}</Project>
+      <Name>RasNetFrameworkSubmodule</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

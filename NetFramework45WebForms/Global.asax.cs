@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using RasNetFrameworkSubmodule;
+using System;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace NetFramework45WebForms
 {
@@ -16,6 +13,10 @@ namespace NetFramework45WebForms
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Print print = new Print();
+
+            print.Ras();
         }
     }
 }
