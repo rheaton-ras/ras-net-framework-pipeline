@@ -15,8 +15,6 @@ jobs:
       with:
          submodules: 'true'
          token: ${{ secrets.PAT_TOKEN }}
-         #repository: rheaton-ras/ras-net-framework-submodule
-         #path: ras-net-framework-submodule
     
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
@@ -24,9 +22,6 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
       
-    #- name: Navigate to Workspace
-    #  run: cd $GITHUB_WORKSPACE
-
     - name: Create Build Directory
       run: mkdir _build
       
